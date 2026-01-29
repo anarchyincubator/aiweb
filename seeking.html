@@ -1,100 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="main.css" />
-<link rel="shortcut icon" href="img/favicon.ico" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>anarchy incubator</title>
+  <title>Join Us — Anarchy Incubator</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body>
-<div class="row">
-<div class="col-2 head">
-<a href="index.html"><img alt="logo" src="img/logoai.png"></a>
-</div>
-<div class="col-5 head">
-  <h1> anarchy incubator</h1>
-</div>
- <div class="col-5 menu">
-   <ul>
-     <li><a href="index.html">Philosophy</a></li>
-     <li><a href="projects.html">Projects</a></li>
-     <li><a href="seeking.html">Join</a></li>
-   </ul>
- </div>
-</div>
 
-<div class="container">
-  <div class="row">
-  <div class="row proj-border">
-    <div class="col-6">
-      <h2>Join the Revolution</h2>
+  <!-- ====== STICKY HEADER ====== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__brand">
+        <img src="img/logoai.png" alt="Anarchy Incubator logo" class="site-header__logo">
+        <span class="site-header__title">anarchy incubator</span>
+      </a>
+      <nav>
+        <ul class="pill-nav">
+          <li><a href="index.html">Philosophy</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="seeking.html">Join</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="col-6 text-right">
-  <h3>
-    <a href="https://discord.gg/2JDd3yGxUk" style="color: #4ba1ac; text-decoration: underline;">Anarchy Incubator Discord</a>
-  </h3>
+  </header>
+
+  <main>
+
+    <!-- ====== PAGE HERO ====== -->
+    <section class="hero hero--short">
+      <div class="hero__inner hero__inner--centered">
+        <div class="hero__content" style="text-align:center;align-items:center;">
+          <h1 class="hero__headline">Join the <span>Revolution</span></h1>
+          <p class="hero__subline" style="margin:0 auto;">We're looking for people who want to build tools that serve communities, not shareholders. No credentials required — just care and commitment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WAVE DIVIDER ====== -->
+    <div class="wave-divider wave-divider--warm">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z"/>
+      </svg>
     </div>
+
+    <!-- ====== ROLES ====== -->
+    <section class="section section--alt">
+      <div class="section__inner">
+        <span class="section__eyebrow">Open Roles</span>
+        <h2 class="section__title">We Are Seeking</h2>
+        <p class="section__desc">All contributions are volunteer and open source. Work on what excites you, on your own schedule.</p>
+
+        <div class="roles-grid">
+
+          <div class="role-card role-card--terracotta">
+            <h3>Engineers</h3>
+            <ul class="role-card__list">
+              <li>Firmware</li>
+              <li>Android</li>
+              <li>iOS</li>
+              <li>Web (Backend / Frontend)</li>
+              <li>DevOps</li>
+              <li>Mechanical</li>
+              <li>Full Stack</li>
+            </ul>
+          </div>
+
+          <div class="role-card role-card--yellow">
+            <h3>Designers</h3>
+            <ul class="role-card__list">
+              <li>Branding</li>
+              <li>Product Design</li>
+              <li>Graphic Design</li>
+              <li>UX</li>
+            </ul>
+          </div>
+
+          <div class="role-card role-card--moss">
+            <h3>Marketers</h3>
+            <ul class="role-card__list">
+              <li>Email</li>
+              <li>Social Media</li>
+              <li>Traditional Media</li>
+              <li>Content Creators</li>
+              <li>Influencers</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WAVE DIVIDER ====== -->
+    <div class="wave-divider wave-divider--moss">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,20 C480,60 960,0 1440,20 L1440,60 L0,60 Z"/>
+      </svg>
+    </div>
+
+    <!-- ====== JOIN CTA ====== -->
+    <section class="join-cta">
+      <div class="join-cta__inner">
+        <h2>Ready to Build?</h2>
+        <p>Jump into the conversation. Pick a project, introduce yourself, and start contributing.</p>
+        <div class="join-cta__actions">
+          <a href="https://discord.gg/2JDd3yGxUk" target="_blank" class="btn btn--join">Join Discord</a>
+          <a href="https://github.com/anarchyincubator" target="_blank" class="btn btn--join-outline">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== WAVE DIVIDER ====== -->
+  <div class="wave-divider wave-divider--charcoal">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z"/>
+    </svg>
   </div>
 
-    <br>
-    <div class="col-12">
-      <h2>We are seeking:</h2>
-    </div>
-    <div class="col-12 proj-border">
-    <div class="col-3">
-      <h3>Engineers</h3>
-    </div>
-    <div class="col-9">
-      <p>
-        firmware<br>
-        android<br>
-        ios<br>
-        web (backend/frontend)<br>
-        devops<br>
-        mechanical<br>
-        full stack ninjas 10x noscope360
-      </p>
-    </div>
-    </div>
+  <!-- ====== FOOTER ====== -->
+  <footer class="site-footer">
+    <p>No copyright. Fork freely. Built with mutual aid by <a href="https://github.com/anarchyincubator" target="_blank">Anarchy Incubator</a>.</p>
+  </footer>
 
-    <div class="col-12 proj-border">
-    <div class="col-3">
-      <h3>Designers</h3>
-    </div>
-    <div class="col-9">
-      <p>
-        branding<br>
-        product design<br>
-        graphic design<br>
-        ux<br>
-      </p>
-    </div>
-    </div>
-
-    <div class="col-12 proj-border">
-    <div class="col-3">
-      <h3>Marketers</h3>
-    </div>
-    <div class="col-9">
-      <p>
-        email<br>
-        social media<br>
-        traditional media<br>
-        content creators/marketers<br>
-        influencers<br>
-      </p>
-    </div>
-    </div>
-
-  </div>
-</div>
-
-<div class="footer">
-<ul class="footlist">
-  <li>copyright: lol</li>
-  <li>design by anarchy</li>
-</ul>
-</div>
 </body>
 </html>

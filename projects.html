@@ -1,61 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="main.css" />
-<link rel="shortcut icon" href="img/favicon.ico" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>anarchy incubator</title>
+  <title>Projects — Anarchy Incubator</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body>
-<div class="row">
-<div class="col-2 head">
-<a href="index.html"><img alt="logo" src="img/logoai.png"></a>
-</div>
-<div class="col-5 head">
-  <h1> anarchy incubator</h1>
-</div>
- <div class="col-5 menu">
-   <ul>
-     <li><a href="index.html">Philosophy</a></li>
-     <li><a href="projects.html">Projects</a></li>
-     <li><a href="seeking.html">Join</a></li>
-   </ul>
- </div>
-</div>
 
-<div class="row">
-  <div class="col-12">
-  <div class="proj-border">
-        <div class="col-3 leftproj">
-          <h2> <a href="https://eggslist.com">Eggslist</a></h2><br><a href="https://github.com/anarchyincubator" target="_blank">GitHub</a><br>
-        </div>
-        <div class="col-3 centerproj">
-          <img class="resizeimgproject" alt="eggslist" src="img/eggslist_logo.png">
-        </div>
-        <div class="col-6 rightproj">
-          <p>Food freedom! Eggslist is community network for local food. Keep backyard chickens and have extra eggs? Grow produce in your garden and have extra to share with your neighbor? Eggslist is the platform for you! Built to be easily deployable and customizable by local groups with specific needs.</p>
+  <!-- ====== STICKY HEADER ====== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__brand">
+        <img src="img/logoai.png" alt="Anarchy Incubator logo" class="site-header__logo">
+        <span class="site-header__title">anarchy incubator</span>
+      </a>
+      <nav>
+        <ul class="pill-nav">
+          <li><a href="index.html">Philosophy</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="seeking.html">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ====== PAGE HERO ====== -->
+    <section class="hero hero--short">
+      <div class="hero__inner hero__inner--centered">
+        <div class="hero__content" style="text-align:center;align-items:center;">
+          <h1 class="hero__headline">Our <span>Projects</span></h1>
+          <p class="hero__subline" style="margin:0 auto;">Open-source tools built for communities, not corporations. Each one is free to deploy, fork, and make your own.</p>
         </div>
       </div>
-      <div class="proj-border">
-        <div class="col-3 leftproj">
-          <h2><a href="https://blog.hatchtrack.com">Hatchtrack</a></h2><br><a href="https://github.com/anarchyincubator" target="_blank">GitHub</a><br>
-        </div>
-        <div class="col-3 centerproj">
-          <img class="resizeimgproject" alt="hatchtrack" src="img/ht_logo.png">
-        </div>
-        <div class="col-6 rightproj">
-          <p>Hatchtrack is a community of poultry enthusiasts. It's designed to monitor and track egg incubation charateristics to ensure the best hatches. The data we collect will allow for better hatching and conservation efforts.</p>
+    </section>
+
+    <!-- ====== WAVE DIVIDER ====== -->
+    <div class="wave-divider wave-divider--warm">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z"/>
+      </svg>
+    </div>
+
+    <!-- ====== EGGSLIST ====== -->
+    <section class="section section--alt">
+      <div class="section__inner">
+        <div class="project-detail">
+          <div class="project-detail__media">
+            <img class="project-detail__logo" src="img/eggslist_logo.png" alt="Eggslist logo">
+          </div>
+          <div class="project-detail__content">
+            <span class="project-card__tag">Live</span>
+            <h2>Eggslist</h2>
+            <p>Food freedom! Eggslist is a community network for local food. Keep backyard chickens and have extra eggs? Grow produce in your garden and have extra to share with your neighbor? Eggslist is the platform for you!</p>
+            <p>Built to be easily deployable and customizable by local groups with specific needs.</p>
+            <div class="project-detail__actions">
+              <a href="https://eggslist.com" target="_blank" class="btn btn--primary">Visit Eggslist</a>
+              <a href="https://github.com/anarchyincubator" target="_blank" class="btn btn--outline">GitHub</a>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- ====== WAVE DIVIDER ====== -->
+    <div class="wave-divider wave-divider--cream">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,20 C480,60 960,0 1440,20 L1440,60 L0,60 Z"/>
+      </svg>
+    </div>
+
+    <!-- ====== HATCHTRACK ====== -->
+    <section class="section">
+      <div class="section__inner">
+        <div class="project-detail project-detail--reverse">
+          <div class="project-detail__media">
+            <img class="project-detail__logo" src="img/ht_logo.png" alt="Hatchtrack logo">
+          </div>
+          <div class="project-detail__content">
+            <span class="project-card__tag">Active</span>
+            <h2>Hatchtrack</h2>
+            <p>Hatchtrack is a community of poultry enthusiasts. It's designed to monitor and track egg incubation characteristics to ensure the best hatches.</p>
+            <p>The data we collect will allow for better hatching and conservation efforts.</p>
+            <div class="project-detail__actions">
+              <a href="https://blog.hatchtrack.com" target="_blank" class="btn btn--primary">Visit Hatchtrack</a>
+              <a href="https://github.com/anarchyincubator" target="_blank" class="btn btn--outline">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WAVE DIVIDER ====== -->
+    <div class="wave-divider wave-divider--moss">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z"/>
+      </svg>
+    </div>
+
+    <!-- ====== JOIN CTA ====== -->
+    <section class="join-cta">
+      <div class="join-cta__inner">
+        <h2>Want to Contribute?</h2>
+        <p>Every project is open source. Pick one that resonates with you and start building.</p>
+        <div class="join-cta__actions">
+          <a href="https://github.com/anarchyincubator" target="_blank" class="btn btn--join">GitHub</a>
+          <a href="seeking.html" class="btn btn--join-outline">See Open Roles</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== WAVE DIVIDER ====== -->
+  <div class="wave-divider wave-divider--charcoal">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z"/>
+    </svg>
   </div>
-</div>
 
-<div class="footer">
-<ul class="footlist">
-  <li>copyright: lol</li>
-  <li>design by anarchy</li>
-</ul>
-</div>
+  <!-- ====== FOOTER ====== -->
+  <footer class="site-footer">
+    <p>No copyright. Fork freely. Built with mutual aid by <a href="https://github.com/anarchyincubator" target="_blank">Anarchy Incubator</a>.</p>
+  </footer>
+
 </body>
 </html>

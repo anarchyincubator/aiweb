@@ -1,93 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="main.css" />
-<link rel="shortcut icon" href="img/favicon.ico" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>anarchy incubator</title>
+  <title>Anarchy Incubator — Technology that Grows from the Ground Up</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body>
-<div class="row">
-<div class="col-2 head">
-<a href="index.html"><img alt="logo" src="img/logoai.png"></a>
-</div>
-<div class="col-5 head">
-  <h1> anarchy incubator</h1>
-</div>
- <div class="col-5 menu">
-   <ul>
-     <li><a href="index.html">Philosophy</a></li>
-     <li><a href="projects.html">Projects</a></li>
-     <li><a href="seeking.html">Join</a></li>
-   </ul>
- </div>
-</div>
 
-<hr class="solid">
+  <!-- ====== STICKY HEADER ====== -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__brand">
+        <img src="img/logoai.png" alt="Anarchy Incubator logo" class="site-header__logo">
+        <span class="site-header__title">anarchy incubator</span>
+      </a>
+      <nav>
+        <ul class="pill-nav">
+          <li><a href="index.html">Philosophy</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="seeking.html">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<div class="container">
-<div class="row align-items-center">
-    <div class="col-6 d-flex align-items-center justify-content-center">
-      <div class="quote-box">
-        <blockquote>
-        "The art of being a slave is to rule one's master."<br>
-        </blockquote>
-        <cite>- Diogenes</cite>
+  <main>
+
+    <!-- ====== HERO ====== -->
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__headline">Technology that <span>Grows from the Ground Up</span></h1>
+          <p class="hero__subline">Open-source community tools for food sovereignty, mutual aid, and local resilience — built by people, not platforms.</p>
+          <div class="hero__actions">
+            <a href="https://github.com/anarchyincubator" target="_blank" class="btn btn--primary">View on GitHub</a>
+            <a href="seeking.html" class="btn btn--outline">Get Involved</a>
+          </div>
+        </div>
+        <div class="hero__image">
+          <img src="img/diogenes1.png" alt="Diogenes illustration">
+        </div>
       </div>
+    </section>
+
+    <!-- ====== WAVE DIVIDER ====== -->
+    <div class="wave-divider wave-divider--warm">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z"/>
+      </svg>
     </div>
-    <div class="col-6 d-flex align-items-center justify-content-center">
-      <img class="resizeimg img-fluid" src="img/diogenes1.png" alt="electronics">
+
+    <!-- ====== MISSION ====== -->
+    <section class="section section--alt" id="mission">
+      <div class="section__inner">
+        <span class="section__eyebrow">Our Mission</span>
+        <h2 class="section__title">Mutual Aid, Not Venture Capital</h2>
+        <p class="section__desc">We build free platforms that connect people to food, trades, and disaster relief in their own neighborhoods. No fees, no data harvesting, no corporate landlords — just communities helping communities.</p>
+
+        <div class="mission-grid">
+          <div class="mission-card">
+            <div class="mission-card__icon" aria-hidden="true">&#127793;</div>
+            <h3>Food Sovereignty</h3>
+            <p>Connect local growers, gardeners, and homesteaders directly to their neighbors. No middlemen, no markups.</p>
+          </div>
+          <div class="mission-card">
+            <div class="mission-card__icon" aria-hidden="true">&#129309;</div>
+            <h3>Skilled Trades</h3>
+            <p>A free directory of local tradespeople — plumbers, electricians, carpenters — owned by the workers, not a platform.</p>
+          </div>
+          <div class="mission-card">
+            <div class="mission-card__icon" aria-hidden="true">&#127758;</div>
+            <h3>Disaster Relief</h3>
+            <p>When disaster strikes, deploy a mutual aid hub in hours. Post needs, offer help, pull through together.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WAVE DIVIDER ====== -->
+    <div class="wave-divider wave-divider--cream">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,20 C480,60 960,0 1440,20 L1440,60 L0,60 Z"/>
+      </svg>
     </div>
+
+    <!-- ====== APPROACH ====== -->
+    <section class="section" id="approach">
+      <div class="section__inner">
+        <span class="section__eyebrow">Our Approach</span>
+        <h2 class="section__title">Self-Hosted. Community-Owned. Forkable.</h2>
+        <p class="section__desc">Every tool we build is a seed you can plant in your own soil. Deploy it on your own server, modify it for your community's needs, and share it forward.</p>
+
+        <ul class="approach-list">
+          <li class="approach-item">
+            <h3>Deployable</h3>
+            <p>Spin up your own instance with a single command. No cloud lock-in, no subscription fees.</p>
+          </li>
+          <li class="approach-item">
+            <h3>Forkable</h3>
+            <p>Every repo is designed to be forked and adapted. Build a food network, a tool library, or something we haven't imagined.</p>
+          </li>
+          <li class="approach-item">
+            <h3>Community-First</h3>
+            <p>Decisions are made in the open. Contributors shape the roadmap. No investors, no board — just people building together.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ====== WAVE DIVIDER ====== -->
+    <div class="wave-divider wave-divider--warm">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z"/>
+      </svg>
+    </div>
+
+    <!-- ====== PROJECTS ====== -->
+    <section class="section section--alt" id="projects">
+      <div class="section__inner">
+        <span class="section__eyebrow">What We're Building</span>
+        <h2 class="section__title">Seeds We Are Planting</h2>
+        <p class="section__desc">Each project is open source, free to use, and designed to be deployed and customized by any community.</p>
+
+        <div class="projects-grid">
+          <div class="project-card project-card--terracotta">
+            <div class="project-card__body">
+              <span class="project-card__tag">Live</span>
+              <h3>Eggslist</h3>
+              <p>A community platform for local food. Search by location for produce, eggs, honey, and more from growers near you. Producers can post listings, create a bio, and blog about their work.</p>
+              <a href="https://eggslist.com" target="_blank" class="btn btn--outline">Visit Eggslist</a>
+            </div>
+          </div>
+          <div class="project-card project-card--yellow">
+            <div class="project-card__body">
+              <span class="project-card__tag">In Progress</span>
+              <h3>Local Tradesmen</h3>
+              <p>A free directory of local tradespeople. Support local workers and businesses without monthly fees. Workers keep their income — no corporate middlemen taking a cut.</p>
+              <a href="projects.html" class="btn btn--outline">Learn More</a>
+            </div>
+          </div>
+          <div class="project-card project-card--moss">
+            <div class="project-card__body">
+              <span class="project-card__tag">Planning</span>
+              <h3>Disaster Relief</h3>
+              <p>Deploy a mutual aid hub during emergencies. Post specific needs or available help and services. Pull together to support families and people in your community.</p>
+              <a href="projects.html" class="btn btn--outline">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== WAVE DIVIDER ====== -->
+    <div class="wave-divider wave-divider--moss">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,20 C480,60 960,0 1440,20 L1440,60 L0,60 Z"/>
+      </svg>
+    </div>
+
+    <!-- ====== JOIN CTA ====== -->
+    <section class="join-cta" id="join">
+      <div class="join-cta__inner">
+        <h2>Build With Us</h2>
+        <p>Whether you write code, design interfaces, or just care about your community — there's a place for you here.</p>
+        <div class="join-cta__actions">
+          <a href="https://github.com/anarchyincubator" target="_blank" class="btn btn--join">GitHub</a>
+          <a href="https://discord.gg/2JDd3yGxUk" target="_blank" class="btn btn--join-outline">Discord</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== WAVE DIVIDER ====== -->
+  <div class="wave-divider wave-divider--charcoal">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 720,0 1440,40 L1440,60 L0,60 Z"/>
+    </svg>
   </div>
 
-  <div class="row">
-  <div class="col-12">
-      <h2>Be the Hero we Need</h2>
-      <p>It's time to directly build apps to directly help people with their most important needs - like food, housing, and healthcare. Instead of letting profits drive our app infrastructure, lets focus on, from the bottom-up, empowering communities with the tools they need to thrive together.</p>
+  <!-- ====== FOOTER ====== -->
+  <footer class="site-footer">
+    <p>No copyright. Fork freely. Built with mutual aid by <a href="https://github.com/anarchyincubator" target="_blank">Anarchy Incubator</a>.</p>
+  </footer>
 
-      <h3>Our Approach</h3>
-      <p>We are building open source, community driven, location based apps to connect communities with the goods and services they need.  For example, Eggslist is our already-built platform to connect local food producers (like gardeners, homesteaders, and farmers) directly to people in their community.<br>
-      <br>Our platforms function like a user-experience friendly Craigslist - enter your zip and search categories and subcategories of items or services near you, with easily editable categories to meet needs.<br><br></p>
-      <p>Our platforms are free, able to be self-hosted and deployed anywhere, and easily  modified for different uses. Deploy your own community food network, a support network to help people meet each other's needs during natural disasters, or create a digital mutual aid network in your city.</p>
-
-      <h3>Be Part of a Compassionate Developer Community</h3>
-      <p>Contribute your expertise and help empower communities to support each other!<br><br>
-      Join us on <a href="https://github.com/anarchyincubator" target="_blank">GitHub</a><br>
-      Join us on <a href="https://discord.gg/2JDd3yGxUk" target="_blank">Discord</a></p>
-    </div>
-  </div>
-</div>
-
-  <br>
-
-  <div class="row">
-    <h2 style="text-align: center;">Projects We Are Building</h2>
-    <div class="col-4">
-      <div class="info-box">
-        <h4>Eggslist</h4>
-        <p>Our already-deployed platform for building local, sustainable food communities. For consumers, search by location for food products near you. For food producers, post and manage listings, create a bio page about you, and create blog posts about what you do.</p>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="info-box">
-        <h4>Local Tradesmen</h4>
-        <p>Build our platform into a local directory of tradespeople - all for free. Support local workers and businesses without having to pay monthly fees, or as a tradesperson, lose income to a corporation that belongs to you - the people doing the work.</p>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="info-box">
-        <h4>Disaster Relief</h4>
-        <p>Easily deploy platform to help with human-to-human disaster relief, posting specific needs or help and services that you have available. Pull together to suppor the families and people in your community to pull through together!</p>
-      </div>
-    </div>
-  </div>
-
-<div class="footer">
-<ul class="footlist">
-  <li>copyright: lol</li>
-  <li>design by anarchy</li>
-</ul>
-</div>
 </body>
 </html>
