@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Base styles for <p> */
+p {
+  display: block;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-size: 16px; /* Base font size for mobile */
+  text-align: left; /* Align text to the left */
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  p {
+    font-size: 24px; /* Adjust as needed for larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  p {
+    font-size: 24px; /* Adjust as needed for even larger screens */
+  }
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+a:link, a:visited, a:hover {
+  color: #f06e5f;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}
+
+@font-face {
+  font-family: 'SpaceGrotesk';
+  src: url(assets/fonts/spacegrotesk/SpaceGrotesk-Regular.woff2);
+}
+
+@font-face {
+  font-family: 'Tomorrow';
+  src: url(assets/fonts/tomorrow/Tomorrow-Regular.ttf);
+}
+
+.col-1 { width: 8.33%; }
+.col-2 { width: 16.66%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.33%; }
+.col-5 { width: 41.66%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.33%; }
+.col-8 { width: 66.66%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.33%; }
+.col-11 { width: 91.66%; }
+.col-12 { width: 100%; }
+
+body {
+  background-color: #000000;
+  color: #4ba1ac;
+  font-family: Tomorrow;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2em; color: #f06e5f; }
+h3, h4 { font-size: 2em; color: #f06e5f; }
+
+.roww {
+  border-radius: 10px;
+  background-color: #f7e4cc;
+  color: #3F3C3B;
+}
+
+.resizeimg {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+.resizeimgproject {
+  max-width: 200px;
+  height: auto;
+}
+
+.head {
+  float: left;
+  color: #f06e5f;
+}
+
+.container {
+  border-radius: 5px;
+  text-shadow: 0px 0px 0px #003000FF;
+  display: block;
+  padding-left: 50px;
+  overflow: auto;
+  border-style: none;
+  border-width: 2px;
+  border-color: black;
+  margin: auto;
+}
+
+.border {
+  border-color: #f06e5f;
+  border-radius: 0 0 10px 10px;
+  border-style: solid;
+}
+
+.info-box {
+  border-color: #f06e5f;
+  border-radius: 10px;
+  text-align: center;
+  border-style: solid;
+  padding: 5px;
+  height: 500px;
+  min-width: 300px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.buffer {
+  min-height: 400px;
+}
+
+.centerhead {
+  text-align: left;
+  text-shadow: 2px 2px #000000;
+  font-size: 2em;
+  min-height: 800px;
+}
+
+.bgpic {
+  background-image: url("img/electronics1.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.menu {
+  float: right;
+}
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 6px;
+  border-radius: 10px; /* Rounded edges */
+  border: 2px solid #f06e5f; /* Reddish border */
+  overflow: hidden; /* Ensures the link fills the entire list item */
+}
+
+.menu li a {
+  display: block;
+  padding: 12px 20px; /* Adjust padding as needed */
+  font-size: 2em;
+  background-color: #000000; /* Black background */
+  color: #4ba1ac;
+  text-decoration: none; /* Remove underline */
+  border-radius: 10px; /* Ensures the rounded edges apply */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li a:hover {
+  background-color: #DBDAEA;
+  color: white; /* Optional: change text color on hover */
+}
+
+
+.footlist li {
+  display: inline;
+  padding-left: 20px;
+  text-shadow: rgb(51, 51, 51) 3px 3px 3px;
+  font-size: larger;
+  color: grey;
+}
+
+.footlist a {
+  color: grey;
+}
+
+.footer {
+  top: 5px;
+  text-align: left;
+  margin-left: auto;
+  margin-right: none;
+  background-color: transparent;
+  font-family: Times New Roman, Times, serif;
+  padding-bottom: 10px;
+  font-size: 50%;
+}
+
+hr.solid {
+  border-top: 1px solid #f06e5f;
+}
+
+.quote-box {
+  border-left: 4px solid #f06e5f;
+  background-color: #000000;
+  padding: 20px;
+  margin-top: 50px;
+  font-style: italic;
+  font-size: 3em;
+  color: #ffffff;
+}
+
+.quote-box blockquote {
+  margin: 0;
+  margin-top: 50px;
+}
+
+.quote-box cite {
+  display: block;
+  margin-top: 100px;
+  text-align: right;
+  font-size: 1em;
+  font-style: normal;
+  color: #ffffff;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-left {
+  align-items: flex-start;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.resizeimg {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+
+.proj-border {
+  border: 2px solid #f06e5f; /* Reddish border */
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.leftproj, .centerproj, .rightproj {
+  padding: 10px;
+}
+
+.leftproj a, .centerproj a, .rightproj a {
+  text-decoration: underline; /* Underline links */
+}
