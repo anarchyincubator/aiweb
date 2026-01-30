@@ -27,6 +27,28 @@
   --radius-md: 12px;
   --radius-lg: 24px;
   --radius-organic: 30% 70% 70% 30% / 30% 30% 70% 70%;
+
+  /* Animation durations */
+  --anim-fast: 2s;
+  --anim-medium: 8s;
+  --anim-slow: 20s;
+  --anim-glacial: 40s;
+
+  /* Effect colors */
+  --glitch-cyan: #00f0ff;
+  --glitch-magenta: #ff00e5;
+  --nebula-purple: rgba(107, 47, 160, 0.25);
+  --nebula-violet: rgba(155, 95, 204, 0.2);
+  --nebula-gold: rgba(240, 192, 64, 0.12);
+
+  /* Z-index layer system */
+  --z-starfield: -10;
+  --z-nebula: -5;
+  --z-blobs: -3;
+  --z-dotgrid: 0;
+  --z-content: 1;
+  --z-scanlines: 5;
+  --z-header: 100;
 }
 
 /* --- Font Faces --- */
@@ -773,6 +795,625 @@ p {
 
   .hero {
     padding: var(--space-lg) var(--space-sm) var(--space-md);
+  }
+}
+
+/* ==========================================================================
+   ANIMATIONS & ATMOSPHERIC EFFECTS
+   ========================================================================== */
+
+/* --- Keyframes --- */
+@keyframes starfield-drift-slow {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-80px, -60px); }
+}
+
+@keyframes starfield-drift-medium {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(120px, 80px); }
+}
+
+@keyframes scanline-flicker {
+  0%, 100% { opacity: 0.035; }
+  25%      { opacity: 0.025; }
+  50%      { opacity: 0.04; }
+  75%      { opacity: 0.03; }
+}
+
+@keyframes nebula-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(40px, -20px) scale(1.05); }
+  66%  { transform: translate(-30px, 25px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes dotgrid-drift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-32px, -32px); }
+}
+
+@keyframes glitch-1 {
+  0%, 10%   { transform: translate(0); opacity: 0; }
+  11%       { transform: translate(-3px, 1px); opacity: 0.8; }
+  13%       { transform: translate(2px, -1px); opacity: 0.7; }
+  15%       { transform: translate(-1px, 2px); opacity: 0.85; }
+  17%       { transform: translate(3px, 0); opacity: 0.75; }
+  18%, 40%  { transform: translate(0); opacity: 0; }
+  41%       { transform: translate(4px, -2px); opacity: 0.8; }
+  42%       { transform: translate(-2px, 1px); opacity: 0.7; }
+  44%       { transform: translate(1px, 3px); opacity: 0.85; }
+  45%, 70%  { transform: translate(0); opacity: 0; }
+  71%       { transform: translate(-3px, -1px); opacity: 0.8; }
+  72%       { transform: translate(2px, 2px); opacity: 0.75; }
+  74%       { transform: translate(-4px, 1px); opacity: 0.8; }
+  75%, 100% { transform: translate(0); opacity: 0; }
+}
+
+@keyframes glitch-2 {
+  0%, 5%    { transform: translate(0); opacity: 0; }
+  6%        { transform: translate(2px, -2px); opacity: 0.8; }
+  8%        { transform: translate(-3px, 1px); opacity: 0.7; }
+  9%        { transform: translate(1px, 2px); opacity: 0.85; }
+  10%, 30%  { transform: translate(0); opacity: 0; }
+  31%       { transform: translate(-2px, -1px); opacity: 0.75; }
+  33%       { transform: translate(3px, 2px); opacity: 0.8; }
+  34%, 55%  { transform: translate(0); opacity: 0; }
+  56%       { transform: translate(4px, 1px); opacity: 0.8; }
+  57%       { transform: translate(-1px, -3px); opacity: 0.7; }
+  59%       { transform: translate(-3px, 2px); opacity: 0.85; }
+  60%, 80%  { transform: translate(0); opacity: 0; }
+  81%       { transform: translate(2px, -1px); opacity: 0.8; }
+  83%       { transform: translate(-4px, 1px); opacity: 0.75; }
+  84%, 100% { transform: translate(0); opacity: 0; }
+}
+
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 7px rgba(155, 95, 204, 0.4),
+      0 0 20px rgba(155, 95, 204, 0.2),
+      0 0 40px rgba(240, 192, 64, 0.1);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(155, 95, 204, 0.6),
+      0 0 30px rgba(155, 95, 204, 0.35),
+      0 0 60px rgba(240, 192, 64, 0.2);
+  }
+}
+
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes card-breathe {
+  0%, 100% {
+    box-shadow:
+      0 2px 12px rgba(107, 47, 160, 0.08),
+      0 0 4px rgba(155, 95, 204, 0.05);
+  }
+  50% {
+    box-shadow:
+      0 4px 20px rgba(107, 47, 160, 0.18),
+      0 0 12px rgba(155, 95, 204, 0.12),
+      0 0 24px rgba(240, 192, 64, 0.06);
+  }
+}
+
+@keyframes card-breathe-intense {
+  0%, 100% {
+    box-shadow:
+      0 6px 24px rgba(107, 47, 160, 0.2),
+      0 0 16px rgba(155, 95, 204, 0.15),
+      0 0 32px rgba(240, 192, 64, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 8px 32px rgba(107, 47, 160, 0.3),
+      0 0 24px rgba(155, 95, 204, 0.25),
+      0 0 48px rgba(240, 192, 64, 0.15);
+  }
+}
+
+@keyframes blob-morph-1 {
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%; }
+  25%  { transform: translate(30px, -40px) scale(1.05) rotate(45deg); border-radius: 60% 40% 30% 70% / 40% 60% 40% 60%; }
+  50%  { transform: translate(-20px, 20px) scale(0.95) rotate(90deg); border-radius: 30% 70% 50% 50% / 50% 50% 30% 70%; }
+  75%  { transform: translate(15px, 30px) scale(1.02) rotate(135deg); border-radius: 50% 50% 70% 30% / 30% 70% 40% 60%; }
+  100% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%; }
+}
+
+@keyframes blob-morph-2 {
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 60% 40% 40% 60% / 40% 60% 40% 60%; }
+  25%  { transform: translate(-40px, 20px) scale(0.97) rotate(-30deg); border-radius: 40% 60% 70% 30% / 60% 40% 50% 50%; }
+  50%  { transform: translate(25px, -30px) scale(1.04) rotate(-60deg); border-radius: 50% 50% 30% 70% / 70% 30% 60% 40%; }
+  75%  { transform: translate(-10px, -20px) scale(0.98) rotate(-90deg); border-radius: 70% 30% 50% 50% / 40% 60% 30% 70%; }
+  100% { transform: translate(0, 0) scale(1) rotate(0deg); border-radius: 60% 40% 40% 60% / 40% 60% 40% 60%; }
+}
+
+@keyframes blob-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.12; }
+  50%      { transform: translate(-50%, -50%) scale(1.1); opacity: 0.2; }
+}
+
+/* --- Step 2: Starfield Background --- */
+body {
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  top: -60px;
+  left: -80px;
+  right: -120px;
+  bottom: -80px;
+  pointer-events: none;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+body::before {
+  z-index: var(--z-starfield);
+  opacity: 0.3;
+  animation: starfield-drift-slow var(--anim-glacial) linear infinite;
+  box-shadow:
+    120px 50px 1px 0px #fff,
+    350px 180px 1px 0px #fff,
+    580px 90px 1px 0px rgba(155,95,204,0.8),
+    810px 320px 1px 0px #fff,
+    1040px 160px 1px 0px #fff,
+    1270px 400px 1px 0px rgba(240,192,64,0.7),
+    200px 520px 1px 0px #fff,
+    430px 650px 1px 0px #fff,
+    660px 480px 1px 0px rgba(155,95,204,0.8),
+    890px 720px 1px 0px #fff,
+    1120px 580px 1px 0px #fff,
+    1350px 800px 1px 0px rgba(240,192,64,0.7),
+    70px 850px 1px 0px #fff,
+    300px 980px 1px 0px #fff,
+    530px 810px 1px 0px #fff,
+    760px 1050px 1px 0px rgba(155,95,204,0.8),
+    990px 900px 1px 0px #fff,
+    1220px 1100px 1px 0px #fff,
+    150px 1200px 1px 0px rgba(240,192,64,0.7),
+    380px 1350px 1px 0px #fff,
+    610px 1180px 1px 0px #fff,
+    840px 1400px 1px 0px #fff,
+    1070px 1250px 1px 0px rgba(155,95,204,0.8),
+    1300px 1500px 1px 0px #fff,
+    50px 100px 1px 0px #fff,
+    280px 300px 1px 0px #fff,
+    510px 200px 1px 0px #fff,
+    740px 450px 1px 0px rgba(240,192,64,0.7),
+    970px 350px 1px 0px #fff,
+    1200px 550px 1px 0px #fff,
+    100px 700px 1px 0px rgba(155,95,204,0.8),
+    330px 600px 1px 0px #fff,
+    560px 750px 1px 0px #fff,
+    790px 900px 1px 0px #fff,
+    1020px 800px 1px 0px rgba(240,192,64,0.7),
+    1250px 950px 1px 0px #fff,
+    180px 1050px 1px 0px #fff,
+    410px 1150px 1px 0px rgba(155,95,204,0.8),
+    640px 1300px 1px 0px #fff,
+    870px 1200px 1px 0px #fff,
+    1100px 1400px 1px 0px rgba(240,192,64,0.7),
+    1330px 1100px 1px 0px #fff,
+    40px 1500px 1px 0px #fff,
+    270px 1400px 1px 0px #fff,
+    500px 1550px 1px 0px rgba(155,95,204,0.8),
+    730px 1600px 1px 0px #fff,
+    960px 1500px 1px 0px #fff,
+    1190px 1650px 1px 0px rgba(240,192,64,0.7),
+    90px 250px 1px 0px #fff,
+    320px 420px 1px 0px #fff,
+    550px 350px 1px 0px rgba(155,95,204,0.8),
+    780px 550px 1px 0px #fff,
+    1010px 480px 1px 0px #fff,
+    1240px 680px 1px 0px rgba(240,192,64,0.7),
+    160px 780px 1px 0px #fff,
+    390px 880px 1px 0px #fff,
+    620px 960px 1px 0px rgba(155,95,204,0.8),
+    850px 1080px 1px 0px #fff,
+    1080px 1160px 1px 0px #fff,
+    1310px 1300px 1px 0px rgba(240,192,64,0.7),
+    230px 1480px 1px 0px #fff,
+    460px 1380px 1px 0px rgba(155,95,204,0.8),
+    690px 1520px 1px 0px #fff,
+    920px 1620px 1px 0px #fff,
+    1150px 1700px 1px 0px rgba(240,192,64,0.7),
+    20px 440px 1px 0px #fff,
+    250px 540px 1px 0px #fff,
+    480px 460px 1px 0px rgba(155,95,204,0.8),
+    710px 640px 1px 0px #fff,
+    940px 560px 1px 0px #fff,
+    1170px 740px 1px 0px rgba(240,192,64,0.7),
+    130px 840px 1px 0px #fff,
+    360px 940px 1px 0px rgba(155,95,204,0.8),
+    590px 1040px 1px 0px #fff,
+    820px 1140px 1px 0px #fff,
+    1050px 1020px 1px 0px rgba(240,192,64,0.7),
+    1280px 1220px 1px 0px #fff,
+    60px 1320px 1px 0px #fff,
+    290px 1420px 1px 0px rgba(155,95,204,0.8),
+    520px 1520px 1px 0px #fff,
+    750px 1620px 1px 0px #fff,
+    980px 1720px 1px 0px rgba(240,192,64,0.7),
+    1210px 1800px 1px 0px #fff,
+    440px 70px 1px 0px #fff,
+    670px 170px 1px 0px rgba(155,95,204,0.8),
+    900px 270px 1px 0px #fff,
+    1130px 370px 1px 0px rgba(240,192,64,0.7),
+    1360px 470px 1px 0px #fff,
+    240px 570px 1px 0px #fff,
+    470px 670px 1px 0px rgba(155,95,204,0.8),
+    700px 770px 1px 0px #fff,
+    930px 870px 1px 0px rgba(240,192,64,0.7),
+    1160px 970px 1px 0px #fff,
+    110px 1070px 1px 0px #fff,
+    340px 1170px 1px 0px rgba(155,95,204,0.8),
+    570px 1270px 1px 0px #fff,
+    800px 1370px 1px 0px rgba(240,192,64,0.7),
+    1030px 1470px 1px 0px #fff,
+    1260px 1570px 1px 0px #fff,
+    30px 1670px 1px 0px rgba(155,95,204,0.8),
+    260px 1770px 1px 0px #fff,
+    490px 1870px 1px 0px rgba(240,192,64,0.7);
+}
+
+body::after {
+  z-index: var(--z-starfield);
+  opacity: 0.5;
+  animation: starfield-drift-medium var(--anim-slow) linear infinite;
+  box-shadow:
+    200px 100px 1.5px 0.5px #fff,
+    500px 250px 1.5px 0.5px rgba(155,95,204,0.9),
+    800px 150px 1.5px 0.5px #fff,
+    1100px 350px 1.5px 0.5px rgba(240,192,64,0.8),
+    1400px 200px 1.5px 0.5px #fff,
+    300px 500px 1.5px 0.5px #fff,
+    600px 400px 1.5px 0.5px rgba(155,95,204,0.9),
+    900px 600px 1.5px 0.5px #fff,
+    1200px 500px 1.5px 0.5px rgba(240,192,64,0.8),
+    150px 750px 1.5px 0.5px #fff,
+    450px 700px 1.5px 0.5px rgba(155,95,204,0.9),
+    750px 850px 1.5px 0.5px #fff,
+    1050px 750px 1.5px 0.5px rgba(240,192,64,0.8),
+    1350px 900px 1.5px 0.5px #fff,
+    100px 1000px 1.5px 0.5px #fff,
+    400px 950px 1.5px 0.5px rgba(155,95,204,0.9),
+    700px 1100px 1.5px 0.5px #fff,
+    1000px 1000px 1.5px 0.5px rgba(240,192,64,0.8),
+    1300px 1150px 1.5px 0.5px #fff,
+    250px 1250px 1.5px 0.5px rgba(155,95,204,0.9),
+    550px 1200px 1.5px 0.5px #fff,
+    850px 1350px 1.5px 0.5px rgba(240,192,64,0.8),
+    1150px 1250px 1.5px 0.5px #fff,
+    50px 1450px 1.5px 0.5px #fff,
+    350px 1400px 1.5px 0.5px rgba(155,95,204,0.9),
+    650px 1550px 1.5px 0.5px #fff,
+    950px 1450px 1.5px 0.5px rgba(240,192,64,0.8),
+    1250px 1600px 1.5px 0.5px #fff,
+    180px 300px 1.5px 0.5px #fff,
+    480px 450px 1.5px 0.5px rgba(155,95,204,0.9),
+    780px 350px 1.5px 0.5px #fff,
+    1080px 550px 1.5px 0.5px rgba(240,192,64,0.8),
+    1380px 400px 1.5px 0.5px #fff,
+    80px 650px 1.5px 0.5px rgba(155,95,204,0.9),
+    380px 800px 1.5px 0.5px #fff,
+    680px 700px 1.5px 0.5px rgba(240,192,64,0.8),
+    980px 900px 1.5px 0.5px #fff,
+    1280px 800px 1.5px 0.5px rgba(155,95,204,0.9),
+    130px 1050px 1.5px 0.5px #fff,
+    430px 1150px 1.5px 0.5px rgba(240,192,64,0.8),
+    730px 1050px 1.5px 0.5px #fff,
+    1030px 1200px 1.5px 0.5px rgba(155,95,204,0.9),
+    1330px 1100px 1.5px 0.5px #fff,
+    230px 1350px 1.5px 0.5px rgba(240,192,64,0.8),
+    530px 1500px 1.5px 0.5px #fff,
+    830px 1400px 1.5px 0.5px rgba(155,95,204,0.9),
+    1130px 1550px 1.5px 0.5px #fff,
+    30px 1700px 1.5px 0.5px rgba(240,192,64,0.8),
+    330px 1650px 1.5px 0.5px #fff,
+    630px 1750px 1.5px 0.5px rgba(155,95,204,0.9),
+    930px 1700px 1.5px 0.5px #fff,
+    1230px 1800px 1.5px 0.5px rgba(240,192,64,0.8);
+}
+
+/* --- Step 3: CRT Scanline Overlay --- */
+html::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-scanlines);
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(107, 47, 160, 0.03) 2px,
+    rgba(107, 47, 160, 0.03) 4px
+  );
+  animation: scanline-flicker var(--anim-fast) steps(4) infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* --- Step 4: Hero Nebula Aurora --- */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  z-index: var(--z-nebula);
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 30% 40%, var(--nebula-purple) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, var(--nebula-violet) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 30%, var(--nebula-gold) 0%, transparent 55%);
+  filter: blur(60px);
+  animation: nebula-drift var(--anim-slow) ease-in-out infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* --- Step 5: Animated Dot-Grid Drift --- */
+.hero::before {
+  animation: dotgrid-drift var(--anim-glacial) linear infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* --- Step 6: Glitch Text on Hero Headline --- */
+.hero__headline {
+  position: relative;
+}
+
+.hero__headline::before,
+.hero__headline::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  pointer-events: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.hero__headline::before {
+  color: var(--glitch-cyan);
+  clip-path: inset(0 0 50% 0);
+  animation: glitch-1 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.hero__headline::after {
+  color: var(--glitch-magenta);
+  clip-path: inset(50% 0 0 0);
+  animation: glitch-2 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* --- Step 6b: Steady Glow on Hero Image --- */
+.hero__image img {
+  box-shadow:
+    0 0 15px rgba(155, 95, 204, 0.4),
+    0 0 40px rgba(107, 47, 160, 0.25),
+    0 0 80px rgba(240, 192, 64, 0.1);
+}
+
+/* --- Step 7: Neon Glow on h1/h2 --- */
+h1, h2 {
+  animation: neon-pulse var(--anim-medium) ease-in-out infinite alternate;
+}
+
+/* --- Step 8: Button Shimmer Effect --- */
+.btn--primary,
+.btn--join {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary::before,
+.btn--join::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%) translateZ(0);
+  animation: shimmer-sweep var(--anim-medium) ease-in-out infinite;
+  pointer-events: none;
+  backface-visibility: hidden;
+}
+
+.btn--primary:hover::before,
+.btn--join:hover::before {
+  animation-duration: 1.5s;
+}
+
+/* --- Step 9: Breathing Card Glow --- */
+.mission-card,
+.project-card,
+.role-card {
+  animation: card-breathe var(--anim-slow) ease-in-out infinite alternate;
+}
+
+.mission-card:nth-child(2),
+.project-card:nth-child(2),
+.role-card:nth-child(2) {
+  animation-delay: -6.6s;
+}
+
+.mission-card:nth-child(3),
+.project-card:nth-child(3),
+.role-card:nth-child(3) {
+  animation-delay: -13.3s;
+}
+
+.mission-card:hover,
+.project-card:hover,
+.role-card:hover {
+  animation: card-breathe-intense 4s ease-in-out infinite alternate;
+}
+
+/* --- Step 10: Morphing Background Blobs --- */
+.section--alt {
+  position: relative;
+  overflow: hidden;
+}
+
+.section--alt::before,
+.section--alt::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.15;
+  filter: blur(80px);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.section--alt::before {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  left: -150px;
+  z-index: var(--z-blobs);
+  background: radial-gradient(circle, var(--nebula-purple), transparent 70%);
+  animation: blob-morph-1 var(--anim-glacial) ease-in-out infinite;
+}
+
+.section--alt::after {
+  width: 700px;
+  height: 700px;
+  bottom: -250px;
+  right: -200px;
+  z-index: var(--z-blobs);
+  background: radial-gradient(circle, var(--nebula-violet), transparent 70%);
+  animation: blob-morph-2 52s ease-in-out infinite;
+}
+
+.join-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.join-cta::before {
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  top: 50%;
+  left: 50%;
+  z-index: var(--z-blobs);
+  pointer-events: none;
+  background: radial-gradient(circle, var(--nebula-gold), transparent 60%);
+  filter: blur(60px);
+  animation: blob-pulse var(--anim-slow) ease-in-out infinite alternate;
+  transform: translate(-50%, -50%) translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Ensure content sits above blobs */
+.section__inner,
+.join-cta__inner,
+.hero__inner {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+/* --- Step 11: Mobile Optimization --- */
+@media (max-width: 900px) {
+  body::before,
+  body::after {
+    display: none;
+  }
+
+  .hero::after {
+    animation-duration: 40s;
+    opacity: 0.5;
+  }
+
+  .mission-card,
+  .project-card,
+  .role-card {
+    animation: none;
+  }
+
+  h1, h2 {
+    text-shadow:
+      0 0 7px rgba(155, 95, 204, 0.3),
+      0 0 15px rgba(240, 192, 64, 0.1);
+    animation: none;
+  }
+
+  .section--alt::before,
+  .section--alt::after {
+    opacity: 0.08;
+  }
+
+  .join-cta::before {
+    opacity: 0.1;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero::after {
+    display: none;
+  }
+
+  h1, h2 {
+    text-shadow: none;
+    animation: none;
+  }
+
+  .hero__headline::before,
+  .hero__headline::after {
+    display: none;
+  }
+
+  .hero__image img {
+    box-shadow: 0 8px 30px rgba(107, 47, 160, 0.15);
+  }
+
+  .section--alt::before,
+  .section--alt::after,
+  .join-cta::before {
+    display: none;
+  }
+
+  html::after {
+    display: none;
+  }
+
+  .btn--primary::before,
+  .btn--join::before {
+    display: none;
+  }
+}
+
+/* --- Step 12: Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
