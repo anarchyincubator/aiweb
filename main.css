@@ -645,6 +645,59 @@ p {
   box-shadow: 0 4px 16px rgba(107, 47, 160, 0.1);
 }
 
+/* Avidya rainbow text logo */
+.avidya-rainbow {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(
+    135deg,
+    #ff6b6b,
+    #ffa500,
+    #ffd700,
+    #4ecdc4,
+    #45b7d1,
+    #6c5ce7,
+    #a855f7,
+    #ff6b9d
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-shift 6s ease infinite;
+  display: block;
+  text-align: center;
+}
+
+@keyframes rainbow-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Groundswell disaster-relief text logo */
+.groundswell-logo {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  background: linear-gradient(
+    135deg,
+    #1A2E2B,
+    #26A69A,
+    #4DB6AC,
+    #B2DFDB
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  text-align: center;
+}
+
 .project-detail__content {
   display: flex;
   flex-direction: column;
